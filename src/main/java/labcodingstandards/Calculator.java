@@ -1,10 +1,8 @@
-//
-//
+// Copyright (C) 2025
 
 package labcodingstandards;
 
 import java.util.Scanner;
-
 
 /**
  * @author
@@ -18,7 +16,7 @@ public class Calculator {
         System.out.print("1. +\n2. -\n3. *\n4. /\nEnter an operator: ");
         
         char operator = reader.nextLine().charAt(0);
-        double First;
+        double first;
         double second;
         String input;
         
@@ -27,7 +25,7 @@ public class Calculator {
         	input = reader.nextLine();
         	
             try {
-            	First=Integer.parseInt(input);
+            	first = Integer.parseInt(input);
                 break;
             } catch (NumberFormatException e) {
                 System.out.println("Not valid!");
@@ -39,39 +37,38 @@ public class Calculator {
         	input = reader.nextLine();
         	
             try {
-            	second=Integer.parseInt(input);
+            	second = Integer.parseInt(input);
                 break;
             } catch (NumberFormatException e) {
                 System.out.println("Not valid!");
             }
         }
 
-        Calculator cal=new Calculator();
-        String result=cal.Operation(First,second,operator);
+        Calculator cal = new Calculator();
+        String result = cal.operation(first, second, operator);
 
         System.out.printf(result);
 		reader.close();
 	}
 
-	private String Operation(double first,double second,char operator) {
+	private String operation(double first, double second, char operator) {
 		double result = 0;
-		switch(operator)
-        {
+		switch (operator) {
             case '1':
-                result=first+second;
+                result = first + second;
                 break;
             case '2':
-                result=first-second;
+                result = first - second;
                 break;
             case '3':
-                result=first*second;
+                result = first * second;
                 break;
             case '4':
-                result =first/second;
+                result = first / second;
                 break;
             default:
             	return "Error! operator is not correct";
         }
-		return "The result is: "+result;
+		return "The result is: " + result;
 	}
 }
